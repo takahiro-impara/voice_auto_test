@@ -14,3 +14,5 @@ OPERATION_VERBS = [
   "開始して",
   "終了して"
 ]
+
+GOOGLE_DIR = './google/'
