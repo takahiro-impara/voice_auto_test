@@ -2,3 +2,5 @@ key.json
 google/
 alexa/
 synonym.txt
+.DS_Store
+__pycache__

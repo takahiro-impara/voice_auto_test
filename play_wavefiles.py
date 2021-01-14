@@ -13,7 +13,7 @@ def get_files(**target_dir):
   if "second_dir" not in target_dir.keys() or target_dir["second_dir"] == None:
     return glob("{first_dir}**/*.wav".format(first_dir=target_dir["first_dir"]), recursive=True)
   else:
-    return glob("{first_dir}{second_dir}/*.wav".format(first_dir=target_dir["first_dir"], 
+    return glob("{first_dir}**/{second_dir}/*.wav".format(first_dir=target_dir["first_dir"], 
                   second_dir=target_dir["second_dir"])
                   , recursive=True)
 

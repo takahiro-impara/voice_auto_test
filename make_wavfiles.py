@@ -62,7 +62,7 @@ def make_dir(dir):
 def call_google_voice(**kwargs):
     WAKE_WORD = VOICE_SET["WAKE_WORD"]["GOOGLE"]
     device_name = kwargs["device_name"]
-    dir_name = "{GOOGLE_DIR}{device_name}".format(GOOGLE_DIR=GOOGLE_DIR, device_name=device_name)
+    dir_name = "{GOOGLE_DIR}{SEX}/{device_name}".format(GOOGLE_DIR=GOOGLE_DIR, device_name=device_name, SEX=kwargs["sex"])
     file_name = "{dir_name}/{synonym}_{operation_verb}_{voice_set}.wav".format(dir_name=dir_name, synonym=kwargs["synonym"], operation_verb=kwargs["operation_verb"], voice_set=kwargs["voice_set"])
     make_dir(dir_name)
 
@@ -81,8 +81,8 @@ def make_voice_files():
         device_name = synonym_list[0]
         for synonym in synonym_list:
             for operation_verb in OPERATION_VERBS:
-                call_google_voice(voice_set=VOICE_SET["MALE"], synonym=synonym, operation_verb=operation_verb, device_name=device_name)
+                call_google_voice(sex="MALE", voice_set=VOICE_SET["MALE"], synonym=synonym, operation_verb=operation_verb, device_name=device_name)
 if __name__ == "__main__":
     #list_languages()
     #list_voices(JAPANESE_LOCALE)
-    #make_voice_files()
+    make_voice_files()
